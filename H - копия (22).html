@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Счетчик времени</title>
+    <link rel="stylesheet" href="css/flipclock.css">
+</head>
+<body>
+    
+    <div class="clock"></div>
+  
+      <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+    <script src='compiled/flipclock.min.js'></script>
+       
+    <script type="text/javascript">
+			var clock;
+
+			$(document).ready(function() {
+
+				// Grab the current date
+				var currentDate = new Date();
+
+				// Set some date in the future. In this case, it's always Jan 1
+				var futureDate  = new Date(currentDate.getFullYear() + 1, 0, 1);
+console.log(futureDate);
+				// Calculate the difference in seconds between the future and current date
+				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+				// Instantiate a coutdown FlipClock
+				clock = $('.clock').FlipClock(diff, {
+					clockFace: 'DailyCounter',
+					countdown: true
+				});
+			});
+		</script>
+    
+ 
+</body>
+</html>
